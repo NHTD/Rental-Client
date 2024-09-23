@@ -1,0 +1,15 @@
+export { default as Header } from "../public/Header/Header";
+export { default as Login } from "../public/Login/Login";
+export { default as Home } from "../public/Home/Home";
+export { default as Navigation } from "../public/Navigation/Navigation";
+export { default as RentalApartment } from "./RentalApartment/Rental";
+export { default as RentalHome } from "../public/RentalHome/RentalHome";
+export { default as RentalRoom } from "../public/RentalRoom/RentalRoom";
+export { default as RentalSpace } from "../public/RentalSpace/RentalSpace";
+export { default as HomePage } from "../public/HomePage/HomePage";
+export { default as Search } from "../public/Search/Search";
+export { default as ListItem } from "../public/ListItem/ListItem";
+export { default as Item } from "../public/Item/Item";
+export { default as Pagination } from "../public/Pagination/Pagination";
+export { default as DetailPost } from "../public/DetailPost/DetailPost";
+export { default as SearchDetail } from "../public/SearchDetail/SearchDetail";

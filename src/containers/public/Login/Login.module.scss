@@ -1,0 +1,88 @@
+.login {
+  background-color: #ffffff;
+  padding: 30px 30px 100px 30px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #dedede;
+  border-radius: 2px;
+}
+
+.content {
+  margin: 0px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.form {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  color: #1266dd;
+  margin-bottom: 20px;
+}
+
+.text-forgot:hover,
+.row-text:hover,
+.text-create:hover {
+  color: #f60;
+  cursor: pointer;
+}
+.row-text {
+  color: #1266dd;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__inner {
+
+    &-google,
+    &-facebook {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 5px;
+      padding: 10px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &-google {
+      background-color: #1877f2;
+    }
+
+    &-facebook {
+      background-color: #ffffff;
+      box-shadow: -2px 4px 16px 0px rgba(0,0,0,0.15);
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+  }
+
+  &__google,
+  &__facebook {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-top: 2px;
+  }
+
+  &__google {
+    color: #757575;
+  }
+
+  &__facebook {
+    color: #ffffff;
+  }
+}

@@ -1,0 +1,79 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    width: 240px;
+    height: 70px;
+    object-fit: contain;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+  }
+
+  &__avatar {
+    border: 1px solid #ddd;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    font-size: 2rem;
+  }
+
+  &__manage {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    position: relative;
+
+    &-modal {
+      display: flex;
+      flex-direction: column;
+
+      position: absolute;
+      top: 100%;
+      right: -25%;
+      box-shadow: 0 0 20px rgb(75 75 75 / 30%);
+      background-color: #fff;
+      padding: 15px 20px;
+      border-radius: 5px;
+      min-width: 200px;
+      z-index: 9;
+    }
+
+    &-text {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 1.5rem;
+      color: #1266dd;
+
+      &:hover {
+        color: #f60;
+        cursor: pointer;
+      }
+    }
+
+    &-text:nth-child(4) {
+      border: none;
+      padding-bottom: 0;
+    }
+  }
+}

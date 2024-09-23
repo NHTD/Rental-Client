@@ -1,0 +1,30 @@
+.select-address {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 1.45rem;
+  }
+
+  &__select {
+    color: #495057;
+    border-color: #ced4da;
+    padding-left: 8px;
+    padding-right: 20px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  &__input {
+  }
+}

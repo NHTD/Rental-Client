@@ -1,0 +1,25 @@
+.page__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px 18px;
+    color: #333;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #f1f1f1;
+
+    &:hover {
+        background-color: #ddd;
+        border-color: #ddd; 
+    }
+
+    &.isActive {
+        background-color: red;
+        color: #fff;
+    }
+
+    &.notActive {
+        cursor: text;
+    }
+}

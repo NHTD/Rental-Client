@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  background: #055699;
+  box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.2);
+  height: 45px;
+
+  position: fixed;
+  width: 100%;
+  z-index: 999999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  &__brand {
+    position: relative;
+    padding: 15px 15px;
+    height: 46px;
+    width: 17%;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  &__nav {
+    flex: 1;
+    width: 83%;
+  }
+}

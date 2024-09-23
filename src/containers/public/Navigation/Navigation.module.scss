@@ -1,0 +1,28 @@
+.nav {
+  width: 100%;
+  background: #1266dd;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+}
+
+.nav-text {
+  color: #fff;
+  padding: 0 12px;
+  height: 40px;
+  line-height: 40px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  display: flex;
+
+  &:hover {
+    background-color: #f73859;
+    height: 100%;
+  }
+}
+
+.active {
+  background-color: #f73859;
+}

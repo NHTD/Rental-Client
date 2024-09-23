@@ -1,0 +1,22 @@
+.system__nav {
+  width: 100%;
+
+  &-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &-text {
+    color: #fff;
+    padding: 0 12px;
+    height: 46px;
+    line-height: 46px;
+    font-weight: 500;
+    font-size: 1.45rem;
+    display: flex;
+
+    &:hover {
+      color: #f90;
+    }
+  }
+}

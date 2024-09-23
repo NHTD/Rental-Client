@@ -1,0 +1,21 @@
+.search {
+  height: 55px;
+  padding: 5px 15px;
+  background: #febb02;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  width: 100%;
+  gap: 5px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+
+  &__item {
+    flex: 1;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

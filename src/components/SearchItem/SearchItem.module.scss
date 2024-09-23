@@ -1,0 +1,30 @@
+.search__item {
+  background: #ffffff;
+  padding: 8px;
+  border-radius: 8px;
+  color: #000000;
+  width: 100%;
+  color: #49494980;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  &-text {
+    color: #000;
+    font-weight: 600;
+  }
+}
+
+.icon-after,
+.icon-before {
+  display: block;
+  color: rgb(156, 163, 175);
+}

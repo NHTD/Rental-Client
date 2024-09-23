@@ -1,0 +1,13 @@
+.system {
+  height: 10000px;
+  &__inner {
+    display: flex;
+  }
+
+  &__content {
+    padding: 15px 42px 42px;
+    margin-left: 17.2%;
+    flex: 1;
+    margin-top: 100px;
+  }
+}
