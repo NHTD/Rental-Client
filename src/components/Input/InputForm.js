@@ -4,24 +4,23 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const InputForm = ({ label, name, type, formik, value }) => {
+const InputForm = ({ text, type, id, value, formik }) => {
   return (
-    <div className={cx("form-content")}>
-      <label htmlFor={name} className={cx("form-name")}>
-        {label}
+    <div className={cx("input")}>
+      <label htmlFor={id} className={cx("input__label")}>
+        {text}
       </label>
       <input
         type={type}
-        id={name}
-        name={name}
-        className={cx("form-control")}
+        id={id}
+        name={id}
+        className={cx("input__control")}
         value={value}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
+        onChange={formik?.handleChange}
       />
-      {formik.touched[name] && formik.errors[name] ? (
-        <div className={cx("error")}>{formik.errors[name]}</div>
-      ) : null}
+      {formik?.errors[id] && (
+        <p className={cx("input__error")}>{formik?.errors[id]}</p>
+      )}
     </div>
   );
 };

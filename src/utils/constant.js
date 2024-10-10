@@ -1,19 +1,26 @@
 export const path = {
-  HOME: "/*",
+  HOME: "/",
   HOME_PAGE: ":page",
   LOGIN: "login",
+  REGISTER: "register",
   CHO_THUE_CAN_HO: "cho-thue-can-ho",
   CHO_THUE_MAT_BANG: "cho-thue-mat-bang",
   NHA_CHO_THUE: "nha-cho-thue",
   CHO_THUE_PHONG_TRO: "cho-thue-phong-tro",
-  DETAIL_POST__TITLE__POSTiD: "chi-tiet/*",
-  SEARCH: "tim-kiem/*",
+  DETAIL_POST__TITLE__POSTID: "chi-tiet/:postId",
+  SEARCH: "tim-kiem/",
+  CHANGE_PASSWORD_V2: "tao-mat-khau-moi/:accountType",
+  OTP: "otp/:accountType",
 
   //System
   SYSTEM: "he-thong",
   CREATE_POST: "tao-moi-bai-dang",
   CONTACT: "lien-he",
-  MANAGE_POST: "quan-ly-bai-dang"
+  FORGOT_PASSWORD: "quen-mat-khau",
+
+  MANAGE_POST: "quan-ly-bai-dang",
+  ACCOUNT_EDITION: "cap-nhat-thong-tin-ca-nhan",
+  CHANGE_PASSWORD: "doi-mat-khau",
 };
 
 export const locations = [

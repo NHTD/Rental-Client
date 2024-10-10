@@ -13,4 +13,6 @@ export { default as Modal } from "./Modal/Modal";
 export { default as Address } from "./Address/Address";
 export { default as Overview } from "./Overview/Overview";
 export { default as Select } from "./Select/Select"
-export { default as Loading } from "./Loading"
+export { default as Loading } from "./Loading/Loading"
+export { default as SliderCustom } from "./SliderCustom/SliderCustom"
+export { default as ChangePasswordV2 } from "./ChangePasswordV2/ChangePasswordV2"

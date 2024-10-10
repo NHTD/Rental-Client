@@ -9,20 +9,28 @@ const cx = classNames.bind(styles);
 
 const { faArrowLeft } = icons;
 
-const Modal = ({ setIsShowModal, contents, name, queries, handleSubmit, arrMinMax, defaultText }) => {
+const Modal = ({
+  setIsShowModal,
+  contents,
+  name,
+  queries,
+  handleSubmit,
+  arrMinMax,
+  defaultText,
+}) => {
   const [rangeMin, setRangeMin] = useState(
-    name === 'price' && arrMinMax?.priceArr
-      ? arrMinMax?.priceArr[0] 
-      : name === "area" && arrMinMax?.areaArr 
-      ? arrMinMax?.areaArr[0] 
+    name === "price" && arrMinMax?.priceArr
+      ? arrMinMax?.priceArr[0]
+      : name === "area" && arrMinMax?.areaArr
+      ? arrMinMax?.areaArr[0]
       : 0
   );
-  
+
   const [rangeMax, setRangeMax] = useState(
-    name === 'price' && arrMinMax?.priceArr 
-      ? arrMinMax?.priceArr[1] 
-      : name === "area" && arrMinMax?.areaArr 
-      ? arrMinMax?.areaArr[1] 
+    name === "price" && arrMinMax?.priceArr
+      ? arrMinMax?.priceArr[1]
+      : name === "area" && arrMinMax?.areaArr
+      ? arrMinMax?.areaArr[1]
       : 100
   );
   const [activedEl, setActivedEl] = useState("");
@@ -95,20 +103,26 @@ const Modal = ({ setIsShowModal, contents, name, queries, handleSubmit, arrMinMa
   };
 
   const handleBeforeSubmit = () => {
-    let min = rangeMin <= rangeMax ? rangeMin : rangeMax
-    let max = rangeMin <= rangeMax ? rangeMax : rangeMin
-    let arrMinMax = [convertToHalf(min), convertToHalf(max)] 
-    // const gaps = name === "price" 
-    //             ? getPriceCodes(arrMinMax, contents) 
+    let min = rangeMin <= rangeMax ? rangeMin : rangeMax;
+    let max = rangeMin <= rangeMax ? rangeMax : rangeMin;
+    let arrMinMax = [convertToHalf(min), convertToHalf(max)];
+    // const gaps = name === "price"
+    //             ? getPriceCodes(arrMinMax, contents)
     //             : getAreaCodes(arrMinMax, contents)
 
-    handleSubmit({
-      [`${name}Number`]: arrMinMax,
-      [name]: `Từ ${convertToHalf(min)} - ${convertToHalf(max)} triệu`
-    }, {
-      [`${name}Arr`]: [min, max]
-    })
-  }
+    handleSubmit(
+      {
+        [`${name}Number`]: arrMinMax,
+        [name]:
+          name === "price"
+            ? `Từ ${convertToHalf(min)} - ${convertToHalf(max)} triệu`
+            : `Từ ${convertToHalf(min)} - ${convertToHalf(max)} m2`,
+      },
+      {
+        [`${name}Arr`]: [min, max],
+      }
+    );
+  };
 
   // const handleSubmit = () => {
   //   console.log("start", convertToFull(rangeMin));
@@ -137,18 +151,20 @@ const Modal = ({ setIsShowModal, contents, name, queries, handleSubmit, arrMinMa
         {(name === "province" || name === "category") && (
           <div className={cx("modal__options")}>
             <span className={cx("modal__content")}>
-                <input
-                  type="radio"
-                  name={name}
-                  id="default"
-                  value={defaultText || ""}
-                  checked={!queries[`${name}Code`] ? true : false}
-                  className={cx("modal__selection")}
-                  onChange={() => handleSubmit({[name]: defaultText, [`${name}Code`]: null})}
-                />
-                <label htmlFor="default" className={cx("modal__text")}>
-                  {defaultText}
-                </label>
+              <input
+                type="radio"
+                name={name}
+                id="default"
+                value={defaultText || ""}
+                checked={!queries[`${name}Code`] ? true : false}
+                className={cx("modal__selection")}
+                onChange={() =>
+                  handleSubmit({ [name]: defaultText, [`${name}Code`]: null })
+                }
+              />
+              <label htmlFor="default" className={cx("modal__text")}>
+                {defaultText}
+              </label>
             </span>
             {contents?.map((content) => (
               <span key={content.code} className={cx("modal__content")}>
@@ -157,9 +173,16 @@ const Modal = ({ setIsShowModal, contents, name, queries, handleSubmit, arrMinMa
                   name={name}
                   id={content.code}
                   value={content.code}
-                  checked={content.code === queries[`${name}Code`] ? true : false}
+                  checked={
+                    content.code === queries[`${name}Code`] ? true : false
+                  }
                   className={cx("modal__selection")}
-                  onChange={() => handleSubmit({[name]: content.value, [`${name}Code`]: content.code})}
+                  onChange={() =>
+                    handleSubmit({
+                      [name]: content.value,
+                      [`${name}Code`]: content.code,
+                    })
+                  }
                 />
                 <label htmlFor={content?.code} className={cx("modal__text")}>
                   {content.value}
@@ -176,9 +199,19 @@ const Modal = ({ setIsShowModal, contents, name, queries, handleSubmit, arrMinMa
                 <div className={cx("modal__amount")}>
                   <span>
                     {rangeMin === 100 && rangeMax === 100
-                      ? `Trên ${convertToHalf(rangeMin)} ${name === "price" ? "triệu" : "m2"}`
-                      : `Từ ${rangeMin <= rangeMax ? convertToHalf(rangeMin) : convertToHalf(rangeMax)} -
-                    ${rangeMax >= rangeMin ? convertToHalf(rangeMax) : convertToHalf(rangeMin)}
+                      ? `Trên ${convertToHalf(rangeMin)} ${
+                          name === "price" ? "triệu" : "m2"
+                        }`
+                      : `Từ ${
+                          rangeMin <= rangeMax
+                            ? convertToHalf(rangeMin)
+                            : convertToHalf(rangeMax)
+                        } -
+                    ${
+                      rangeMax >= rangeMin
+                        ? convertToHalf(rangeMax)
+                        : convertToHalf(rangeMin)
+                    }
                     ${name === "price" ? "triệu" : "m2"}`}
                   </span>
                 </div>
@@ -242,7 +275,9 @@ const Modal = ({ setIsShowModal, contents, name, queries, handleSubmit, arrMinMa
                     active: content.code === activedEl,
                   })}
                 >
-                  {content.value} đồng
+                  {name === "price"
+                    ? `${content.value} đồng`
+                    : `${content.value} m2`}
                 </span>
               ))}
             </div>
@@ -250,7 +285,7 @@ const Modal = ({ setIsShowModal, contents, name, queries, handleSubmit, arrMinMa
         )}
         <button
           type="submit"
-          onClick = {handleBeforeSubmit}
+          onClick={handleBeforeSubmit}
           className={cx("modal__btn")}
         >
           Áp dụng

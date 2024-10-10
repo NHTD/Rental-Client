@@ -14,21 +14,18 @@ export const getUserDetail = () => async (dispatch) => {
         type: actionTypes.GET_USER_DETAIL,
         userDetail: [],
       });
-      dispatch({type: actionTypes.LOGOUT})
     }
   } catch (error) {
     dispatch({
       type: actionTypes.GET_USER_DETAIL,
       userDetail: [],
     });
-    dispatch({type: actionTypes.LOGOUT})
   }
 };
 
 export const getUserAccountType = (accountType) => async (dispatch) => {
   try {
     const response = await apiGetUserAccountType(accountType);
-    console.log(response.data)
     if (response.data) {
       dispatch({
         type: actionTypes.GET_USER_ACCOUNT_TYPE,
@@ -39,13 +36,11 @@ export const getUserAccountType = (accountType) => async (dispatch) => {
         type: actionTypes.GET_USER_ACCOUNT_TYPE,
         userDetail: [],
       });
-      dispatch({type: actionTypes.LOGOUT})
     }
   } catch (error) {
     dispatch({
       type: actionTypes.GET_USER_ACCOUNT_TYPE,
       userDetail: [],
     });
-    dispatch({type: actionTypes.LOGOUT})
   }
 };

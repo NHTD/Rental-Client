@@ -9,6 +9,7 @@ import { categoryReducer } from "./categoryReducer";
 import { priceReducer } from "./priceReducer";
 import { areaReducer } from "./areaReducer";
 import { provinceReducer } from "./provinceReducer";
+import { districtReducer } from "./districtReducer";
 
 const commonConfig = {
   storage,
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
   prices: priceReducer,
   areas: areaReducer,
   provinces: provinceReducer,
+  districts: districtReducer,
 });
 
 export default rootReducer;

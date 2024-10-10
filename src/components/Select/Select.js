@@ -5,7 +5,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 const Select = ({ label, options, value, setValue, type, name, invalidFields, setInvalidFields }) => {
-
+  
   const handleErrorText = () => {
     let nameInvalid = invalidFields?.find(el => el.name === name)
     let addressInvalid = invalidFields?.find(el => el.name === "address")
@@ -32,22 +32,20 @@ const Select = ({ label, options, value, setValue, type, name, invalidFields, se
               type === "province"
                 ? el?.code
                 : type === "district"
-                ? el?.district_id
+                ? el?.id
                 : el.code
             }
             value={
               type === "province"
                 ? el?.code
                 : type === "district"
-                ? el?.district_id
+                ? el?.id 
+                : type === "category"
+                ? el?.code
                 : el.code
             }
           >
-            {type === "province"
-              ? el?.value
-              : type === "district"
-              ? el?.district_name
-              : el.value}
+            {type === "province" ? el?.value : type === "district" ? el?.districtName : type === "category" ? el?.value : el.value}
           </option>
         ))}
       </select>

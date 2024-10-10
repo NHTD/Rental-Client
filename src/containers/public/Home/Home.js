@@ -25,13 +25,14 @@ const Home = () => {
   return (
     <div className={cx("container")}>
       <Header />
-      <Navigation />
+      <div className={cx("container__nav")}>
+        <Navigation />
+      </div>
       {isLoggedIn && <Search />}
       <div className={cx("outlet")}>
         <Outlet />
       </div>
       <Intro />
-      <Contact />
     </div>
   );
 };

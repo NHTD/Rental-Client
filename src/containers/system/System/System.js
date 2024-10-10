@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./System.module.scss";
 import classNames from "classnames/bind";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 import { path } from "../../../utils/constant";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
-import { getUserDetail } from "../../../store/actions";
 
 const cx = classNames.bind(styles);
 
@@ -22,7 +21,7 @@ const System = () => {
   //   const token = localStorage.getItem('token');
   
   //   if (isLoggedIn && token) {
-  //     dispatch(getUserDetail()); // Load lại thông tin người dùng
+  //     dispatch(getUserDetail()); 
   //   }
   // }, [location.pathname]);
   

@@ -1,0 +1,247 @@
+.detail {
+    width: 100%;
+    display: flex;
+    column-gap: 20px;
+
+    &__post {
+        width: 66.36%;
+        border: 1px solid #dedede;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background-color: #fff;
+    }
+
+    &__img {
+        width: 728px;
+        height: 317px;
+        object-fit: cover;
+    }
+
+    &__content {
+        padding: 20px;
+    }
+
+    &__header {
+        margin-bottom: 5px;
+    }
+
+    &__title {
+        display: inline;
+        color: #E13427;
+        font-size: 2.3rem;
+        font-weight: bold;
+        line-height: 1.4;
+    }
+
+    &__star {
+        color: #FFD454;
+        margin-right: 3px;
+    }
+
+    &__address {
+        display: block;
+        margin-bottom: 13px;
+        font-size: 1.45rem;
+    }
+
+    &__location-dot {
+        color: #1081E0;
+        margin-right: 7px;
+        font-size: 1.5rem;
+    }
+
+    &__attributes {
+        display: flex;
+        justify-content: space-between;
+        width: 500px;
+
+        margin-bottom: 30px;
+    }
+
+    &__price {
+        display: inline-flex;
+        align-items: center;
+        color: #16c784;
+        font-weight: bold;
+        font-size: 2rem;
+
+        &-icon {
+            width: 16px;
+            height: 16px;
+            object-fit: cover;
+            display: inline-block;
+            margin-right: 8px;
+        }
+    }
+
+    &__acreage {
+        display: inline-flex;
+        align-items: center;
+        font-size: 1.45rem;
+
+        &-icon {
+            width: 16px;
+            height: 16px;
+            object-fit: cover;
+            display: inline-block;
+            margin-right: 8px;
+        }
+    }
+
+    &__time {
+        display: inline-flex;
+        align-items: center;
+        font-size: 1.45rem;
+
+        &-icon {
+            width: 16px;
+            height: 16px;
+            object-fit: cover;
+            display: inline-block;
+            margin-right: 8px;
+        }
+    }
+
+    &__hashtag {
+        display: inline-flex;
+        align-items: center;
+        font-size: 1.45rem;
+
+        &-icon {
+            width: 16px;
+            height: 16px;
+            object-fit: cover;
+            display: inline-block;
+            margin-right: 8px;
+            color: #ccc;
+        }
+    }
+
+    &__main-content {
+        margin-bottom: 20px;
+    }
+
+    &__describe {
+        display: block;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    &__description {
+        line-height: 1.5;
+    }
+
+    &__overview {
+        margin-bottom: 20px;
+        
+        &-title {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__table {
+        width: 100%;
+
+        &-row td {
+            padding: 10px;
+            font-size: 1.45rem;
+        }
+
+        &-row td:nth-child(odd) {
+            width: 200px;
+        }
+
+        &-row:nth-child(odd) {
+            width: 171px;
+            background-color: #F5F5F5;
+        }
+    }
+
+    &__sidebar {
+        width: 32%;
+    }
+
+    &__author {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        background-color: #febb02;
+        border: 1px solid #febb02;
+    }
+
+    &__avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+
+    &__name {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &__status {
+        display: block; 
+        position: relative;
+        font-size: 1.45rem;
+    }
+
+    &__dot {
+        content: "";
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        left: -15%;
+        top: 26%;
+        background-color: #14c683;
+        border-radius: 50%;
+    }
+
+    &__phone {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 5px;
+
+        font-weight: 700;
+        font-size: 1.5rem;
+        width: 100%;
+        background: #16c784;
+        border-color: #16c784;
+        background: linear-gradient(to right, #16c784, #16c784);
+        margin-bottom: 10px;
+        border-radius: 5px;
+        height: 40px;
+        padding: 0 10px;
+
+        &-img {
+            width: 20px;
+            height: 20px;
+            object-fit: cover;
+            font-style: #fff;
+        }
+
+        &-text {
+            color: #fff;
+            font-size: 1.9rem;
+            font-weight: bold;
+        }
+    }
+
+    &__slider {
+        width: 100%;
+    }
+}

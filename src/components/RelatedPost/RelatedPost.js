@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import SubItem from "../SubItem/SubItem";
 import { useDispatch, useSelector } from "react-redux";
 import { getNewPosts } from "../../store/actions/post";
+import { Link} from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -21,13 +22,14 @@ const RelatedPost = () => {
     <div className={cx("related__post")}>
       <h3 className={cx("related__post-heading")}>Tin mới đăng</h3>
       {newPosts?.map((newPost) => (
-        <div key={newPost.id} className={cx("related__post-inner")}>
+        <Link to={`/chi-tiet/${newPost?.id}`} key={newPost.id} className={cx("related__post-inner")}>
           <SubItem
-            title={newPost.title}
-            price={newPost.attribute.price}
-            time={newPost.created_at}
+            images={newPost?.images}
+            title={newPost?.title}
+            price={newPost?.attribute.price}
+            time={newPost?.created_at}
           />
-        </div>
+        </Link>
       ))}
     </div>
   );

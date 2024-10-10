@@ -6,11 +6,11 @@ import "moment/locale/vi";
 
 const cx = classNames.bind(styles);
 
-const SubItem = ({ title, price, time }) => {
+const SubItem = ({ title, price, time, images }) => {
   return (
     <div className={cx("sub__item")}>
       <img
-        src="https://images.unsplash.com/photo-1462826303086-329426d1aef5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cm9vbXxlbnwwfHwwfHx8MA%3D%3D"
+        src={images[0]?.image}
         alt="img"
         className={cx("sub__item-img")}
       />

@@ -22,7 +22,7 @@ const Sidebar = () => {
       <div className={cx("system__sidebar-info")}>
         <div className={cx("system__sidebar-content")}>
           <img
-            src="https://phongtro123.com/images/default-user.png"
+            src={userDetail?.avatar || "https://phongtro123.com/images/default-user.png"}
             alt="avatar"
             className={cx("system__sidebar-avatar")}
           />

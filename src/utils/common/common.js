@@ -32,8 +32,18 @@ export const getCodePrice = (totals, min, max) => {
 
     return {
       ...item,
-      min: arrMaxMin.length === 2 ? arrMaxMin[0] : arrMaxMin[0] === min ? 0 : arrMaxMin[0],
-      max: arrMaxMin.length === 2 ? arrMaxMin[1] : arrMaxMin[0] === max ? 999999999 : arrMaxMin[0]
+      min:
+        arrMaxMin.length === 2
+          ? arrMaxMin[0]
+          : arrMaxMin[0] === min
+          ? 0
+          : arrMaxMin[0],
+      max:
+        arrMaxMin.length === 2
+          ? arrMaxMin[1]
+          : arrMaxMin[0] === max
+          ? 999999999
+          : arrMaxMin[0],
     };
   });
 };
@@ -44,20 +54,30 @@ export const getCodeAreas = (totals, min, max) => {
 
     return {
       ...item,
-      min: arrMaxMin.length === 2 ? arrMaxMin[0] : arrMaxMin[0] === min ? 0 : arrMaxMin[0],
-      max: arrMaxMin.length === 2 ? arrMaxMin[1] : arrMaxMin[0] === max ? 999999999 : arrMaxMin[0]
+      min:
+        arrMaxMin.length === 2
+          ? arrMaxMin[0]
+          : arrMaxMin[0] === min
+          ? 0
+          : arrMaxMin[0],
+      max:
+        arrMaxMin.length === 2
+          ? arrMaxMin[1]
+          : arrMaxMin[0] === max
+          ? 999999999
+          : arrMaxMin[0],
     };
   });
 };
 
 export const getPriceCodes = (number, prices, min, max) => {
   const pricesWithMinMax = getCodePrice(prices, min, max);
-  return pricesWithMinMax.filter(el => el.min <= number && number < el.max)
+  return pricesWithMinMax.filter((el) => el.min <= number && number < el.max);
 };
 
 export const getAreaCodes = (number, areas, min, max) => {
   const areasWithMinMax = getCodeAreas(areas, min, max);
-  return areasWithMinMax.filter(el => el.min <= number && number < el.max)
+  return areasWithMinMax.filter((el) => el.min <= number && number < el.max);
 };
 
 export const menu = [
@@ -94,19 +114,13 @@ export const menuSidebar = [
   {
     id: 3,
     text: "Sửa thông tin cá nhân",
-    path: "/he-thong/sua-thong-tin-ca-nhan",
+    path: "/he-thong/cap-nhat-thong-tin-ca-nhan",
     icon: <FontAwesomeIcon icon={faPenToSquare} />,
   },
   {
-    id: 5,
-    text: "Sửa thông tin cá nhân",
-    path: "/he-thong/sua-thong-tin-ca-nhan",
-    icon: <FontAwesomeIcon icon={faPenToSquare} />,
-  },
-  {
-    id: 6,
+    id: 4,
     text: "Liên hệ",
-    path: "/he-thong/lien-he",
+    path: "/lien-he",
     icon: <FontAwesomeIcon icon={faComment} />,
   },
 ];
@@ -114,40 +128,48 @@ export const menuSidebar = [
 export const validate = (payload, setInvalidFields) => {
   let invalids = 0;
   let fields = Object.entries(payload);
-  fields.forEach(el => {
-    if(el[1] === ""){
-      setInvalidFields(prev => [...prev, {
-        name: el[0],
-        message: "Bạn không được bỏ trống trường này"
-      }])
+  fields.forEach((el) => {
+    if (el[1] === "") {
+      setInvalidFields((prev) => [
+        ...prev,
+        {
+          name: el[0],
+          message: "Bạn không được bỏ trống trường này",
+        },
+      ]);
       invalids++;
     }
-  })
+  });
 
-  fields.forEach(el => {
-    switch(el[0]){
-      case 'priceNumber':
-      case 'areaNumber': 
-        if(+el[1]===0){
-          setInvalidFields(prev => [...prev, {
-            name: el[0],
-            message: "Chưa đặt giá trị cho trường này"
-          }])
+  fields.forEach((el) => {
+    switch (el[0]) {
+      case "priceNumber":
+      case "areaNumber":
+        if (+el[1] === 0) {
+          setInvalidFields((prev) => [
+            ...prev,
+            {
+              name: el[0],
+              message: "Chưa đặt giá trị cho trường này",
+            },
+          ]);
+          invalids++;
+        } else if (!+el[1]) {
+          setInvalidFields((prev) => [
+            ...prev,
+            {
+              name: el[0],
+              message: "Trường này là số",
+            },
+          ]);
           invalids++;
         }
-        else if(!+el[1]){
-          setInvalidFields(prev => [...prev, {
-            name: el[0],
-            message: "Trường này là số"
-          }])
-          invalids++;
-        }
-        break
+        break;
 
       default:
         break;
     }
-  })
+  });
 
-  return invalids
-}
+  return invalids;
+};

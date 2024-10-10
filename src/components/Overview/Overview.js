@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import styles from "./Overview.module.scss";
 import classNames from "classnames/bind";
 import Select from "../Select/Select";
@@ -6,21 +6,22 @@ import { useSelector } from "react-redux";
 
 const cx = classNames.bind(styles);
 
-const genders = [
-  {
-    id: 1,
-    value: "Nam",
-  },
-  {
-    id: 2,
-    value: "Nữ",
-  },
-];
-
 const Overview = ({ payload, setPayload, invalidFields, setInvalidFields }) => {
   const { category } = useSelector((state) => state.category);
   const { userDetail } = useSelector((state) => state.user);
-  // const [categories, setCategories] = useState();
+  const { dataEdit } = useSelector((state) => state.post)
+
+  const [categories, setCategories] = useState(() => {
+    let categoryCode = dataEdit ? dataEdit?.category?.code : ""
+    return categoryCode
+  });
+
+  useEffect(() => {
+    setPayload((prev) => ({
+      ...prev,
+      categoryCode: categories ? `${category?.find((el) => el?.code === categories)?.code}` : ``
+    }));
+  }, [categories]);
 
   return (
     <div className={cx("overview")}>
@@ -28,10 +29,10 @@ const Overview = ({ payload, setPayload, invalidFields, setInvalidFields }) => {
       <div className={cx("overview__select")}>
         <Select
           label={"Loại chuyên mục"}
-          name={"categoryCode"}
+          // name={"category"}
           options={category}
-          value={payload.categoryCode}
-          setValue={setPayload}
+          value={categories}
+          setValue={setCategories}
           invalidFields={invalidFields}
           setInvalidFields={setInvalidFields}
           type={"category"}
@@ -107,6 +108,7 @@ const Overview = ({ payload, setPayload, invalidFields, setInvalidFields }) => {
             value={payload.priceNumber}
             onChange={(e) => setPayload(prev => ({...prev, priceNumber: e.target.value}))}
             onFocus={() => setInvalidFields([])}
+            placeholder="0"
           />
           <span className={cx("overview__text")}>đồng</span>
         </div>
@@ -127,6 +129,7 @@ const Overview = ({ payload, setPayload, invalidFields, setInvalidFields }) => {
             value={payload.areaNumber}
             onChange={(e) => setPayload(prev => ({...prev, areaNumber: e.target.value}))}
             onFocus={() => setInvalidFields([])}
+            placeholder="0" 
           />
           <span className={cx("overview__text")}>m2</span>
         </div>

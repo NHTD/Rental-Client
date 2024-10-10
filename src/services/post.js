@@ -77,7 +77,7 @@ export const apiCreatePost = (formData) =>
     try {
       const response = await axiosConfig({
         method: "POST",
-        url: `/rentalHome/posts/createPost`,
+        url: `/rentalHome/posts/create-post`,
         data: formData, 
         headers: {
           "Content-Type": "multipart/form-data",
@@ -103,3 +103,57 @@ export const apiGetPostsOfUser = (query, token) =>
       reject(error);
     }
   });
+
+export const apiUpdatePost = (postId, formData) =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const response = await axiosConfig({
+        method: "PUT",
+        url: `/rentalHome/posts/${postId}`,
+        data: formData
+      });
+      resolve(response);
+    } catch (error) {
+      reject(error);
+    }
+  });
+
+export const apiDeleteImage = (imageUrl) =>
+new Promise(async (resolve, reject) => {
+  try {
+    const response = await axiosConfig({
+      method: "POST",
+      url: "/rentalHome/posts/delete-img",
+      data: imageUrl
+    });
+    resolve(response);
+  } catch (error) {
+    reject(error);
+  }
+});
+
+export const apiDeletePost = (postId) =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const response = await axiosConfig({
+        method: "DELETE",
+        url: `/rentalHome/posts/${postId}`
+      });
+      resolve(response);
+    } catch (error) {
+      reject(error);
+    }
+  });
+
+export const apiGetPostById = (postId) => 
+  new Promise( async (resolve, reject) => {
+    try {
+      const response = await axiosConfig({
+        method: "GET",
+        url: `/rentalHome/posts/get-post/${postId}`
+      })
+      resolve(response)
+    } catch (error) {
+      reject(error)
+    }
+})

@@ -1,0 +1,68 @@
+.otp {
+  &__text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 35px;
+  }
+
+  &__desc {
+    display: block;
+    font-size: 1.4rem;
+    color: #333;
+    margin: 14px 0 20px;
+    line-height: 1.2;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    font-size: 1.55rem;
+    color: #333;
+  }
+
+  &__content {
+    padding: 30px 30px 50px;
+    background-color: #fff;
+    max-width: 650px;
+    border: 1px solid #dedede;
+    border-radius: 8px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__input {
+    width: 100%;
+    height: 45px;
+    border: 0;
+    background-color: #e8f0fe;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &__btn {
+    width: 100%;
+    border-radius: 5px;
+    height: 45px;
+    border: 1px solid #3961fb;
+    background: #3961fb;
+    font-weight: 700;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}

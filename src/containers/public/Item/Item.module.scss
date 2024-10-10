@@ -22,10 +22,21 @@
 
 .item-thumbnail {
   display: block;
-  width: 138px;
-  height: 120px;
+  width: 280px;
+  height: 240px;
   object-fit: cover;
   border-radius: 3px;
+}
+
+.item-length {
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+  color: #f8f8f8;
+  font-size: 1.2rem;
+  padding: 5px 8px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .item-content_row {

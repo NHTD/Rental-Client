@@ -26,13 +26,21 @@ const Header = () => {
 
   useEffect(() => {
     ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [params.get("page")]);
+  }, [params.get("offset")]);
 
   const { isLoggedIn } = useSelector((state) => state.auth);
 
-  const login = useCallback((flag) => {
-    navigate(path.LOGIN, { state: { flag } });
-  }, []);
+  const handleRegister = () => {
+    navigate(`/${path.REGISTER}`)
+  }
+
+  const handleLogin = () => {
+    navigate(`/${path.LOGIN}`)
+  }
+
+  // const login = useCallback((flag) => {
+  //   navigate(path.LOGIN, { state: { flag } });
+  // }, []);
 
   return (
     <header ref={ref} className={cx("header")}>
@@ -49,16 +57,16 @@ const Header = () => {
           <>
             <small>Phongtro123.com</small>
             <Button
-              text={"Sign in"}
+              text={"Log in"}
+              onClick={() => handleLogin()}
               second
               small
               IcBefore={faUserPlus}
-              onClick={() => login(false)}
             />
 
             <Button
-              text={"Sign up"}
-              onClick={() => login(true)}
+              text={"Register"}
+              onClick={() => handleRegister()}
               second
               small
               IcBefore={faRightToBracket}

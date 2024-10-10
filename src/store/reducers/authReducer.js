@@ -11,15 +11,12 @@ const authReducer = (state = initState, action) => {
     case actionTypes.REGISTER_SUCCESS:
       return {
         ...state,
-        isLoggedIn: true,
-        token: action.data,
+        msg: action.data,
       };
     case actionTypes.REGISTER_FAIL:
       return {
         ...state,
-        isLoggedIn: false,
         msg: action.data,
-        token: null,
       };
     case actionTypes.SIGN_IN_SUCCESS:
       return {
@@ -37,14 +34,14 @@ const authReducer = (state = initState, action) => {
     case actionTypes.SOCIAL_LOGIN:
       return {
         ...state,
-        url: action.url
+        url: action.url,
       };
     case actionTypes.SOCIAL_LOGIN_CALLBACK:
       return {
         ...state,
         isLoggedIn: true,
         token: action.data,
-      }; 
+      };
     case actionTypes.LOGOUT:
       return {
         ...state,

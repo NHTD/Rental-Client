@@ -1,5 +1,6 @@
 export { default as Header } from "../public/Header/Header";
 export { default as Login } from "../public/Login/Login";
+export { default as Register } from "../public/Register/Register";
 export { default as Home } from "../public/Home/Home";
 export { default as Navigation } from "../public/Navigation/Navigation";
 export { default as RentalApartment } from "./RentalApartment/Rental";

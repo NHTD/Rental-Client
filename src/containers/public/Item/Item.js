@@ -4,18 +4,11 @@ import classNames from "classnames/bind";
 import icons from "../../../utils/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import { formatVietnameseToString } from "../../../utils/common/common";
+import { path } from "../../../utils/constant";
 
 const { faStar, BsBookmarkStarFill, BsHeart, BsHeartFill } = icons;
 
 const cx = classNames.bind(styles);
-
-const thumbnails = [
-  "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/10/inshot-20240710-223238669_1720625586.jpg",
-  "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/10/inshot-20240710-223238669_1720625586.jpg",
-  "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/10/z5621409053125-ad742633d8a8e59b99d0ed79af670a50_1720625352.jpg",
-  "https://pt123.cdn.static123.com/images/thumbs/450x300/fit/2024/07/02/1i1jr08ia-85svmp_1719934128.jpg",
-];
 
 const Item = ({
   images,
@@ -25,46 +18,39 @@ const Item = ({
   description,
   attribute,
   address,
-  id
+  id,
 }) => {
-  const [isMouseHeart, setIsMouseHeart] = useState(false);
+  // const [isMouseHeart, setIsMouseHeart] = useState(false);
 
   const handleStar = (star) => {
-    let stars = []
-    for(let i=1; i<=+star; i++){
-      stars.push(<FontAwesomeIcon
-        icon={faStar}
-        className={cx("item-content_icon")}
-      />)
+    let stars = [];
+    for (let i = 1; i <= +star; i++) {
+      stars.push(
+        <FontAwesomeIcon icon={faStar} className={cx("item-content_icon")} />
+      );
     }
 
-    return stars
-  }
+    return stars;
+  };
+  console.log(user);
 
+  //className={cx("item-thumbnail")}
   return (
     <div className={cx("item-row")}>
-      <Link to={`chi-tiet/${formatVietnameseToString(title)}/${id}`} className={cx("item-images")}>
+      <Link to={`${path.HOME}chi-tiet/${id}`} className={cx("item-images")}>
         <img
-          src={thumbnails[0]}
+          src={
+            images?.length > 0
+              ? images[0]?.image
+              : "https://phongtro123.com/img/thumb_default.jpg"
+          }
           alt="preview"
           className={cx("item-thumbnail")}
         />
-        <img
-          src={thumbnails[1]}
-          alt="preview"
-          className={cx("item-thumbnail")}
-        />
-        <img
-          src={thumbnails[2]}
-          alt="preview"
-          className={cx("item-thumbnail")}
-        />
-        <img
-          src={thumbnails[3]}
-          alt="preview"
-          className={cx("item-thumbnail")}
-        />
-        <span
+
+        <span className={cx("item-length")}>{images?.length} ảnh</span>
+
+        {/* <span
           className={cx("item-heart")}
           onMouseEnter={() => setIsMouseHeart(true)}
           onMouseLeave={() => setIsMouseHeart(false)}
@@ -74,20 +60,20 @@ const Item = ({
           ) : (
             <BsHeart className={cx("item-heart__leave")} />
           )}
-        </span>
+        </span> */}
       </Link>
       <div className={cx("item-content")}>
         <div className={cx("item-content_row")}>
           <h3 className={cx("item-content_heading")}>
             <div className={cx("item-content_icons")}>
-              {handleStar.length > 0 
-                &&
+              {handleStar.length > 0 &&
                 handleStar(+star).map((el, index) => (
                   <span key={index}>{el}</span>
-                ))
-              }
+                ))}
             </div>
-            <span className={cx("line-clamp", "line-2")}>{title}</span>
+            <Link to={`chi-tiet/${id}`} className={cx("line-clamp", "line-2")}>
+              {title}
+            </Link>
           </h3>
           <div>
             <BsBookmarkStarFill size={17} color="orange" />
@@ -118,8 +104,14 @@ const Item = ({
             <span className={cx("item-content_name")}>{user?.name}</span>
           </div>
           <div className={cx("item-content_contact")}>
-            <span className={cx("item-content_phone")}>Gọi {user?.phone}</span>
-            <span className={cx("item-content_zalo")}>Nhắn Zalo</span>
+            {user?.phone && (
+              <>
+                <span className={cx("item-content_phone")}>
+                  Gọi {user?.phone}
+                </span>
+                <span className={cx("item-content_zalo")}>Nhắn Zalo</span>
+              </>
+            )}
           </div>
         </div>
       </div>

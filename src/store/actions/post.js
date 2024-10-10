@@ -1,9 +1,12 @@
 import {
   apiCreatePost,
+  apiDeleteImage,
   apiGetNewPosts,
+  apiGetPostById,
   apiGetPosts,
   apiGetPostsLimit,
   apiGetPostsOfUser,
+  apiUpdatePost,
   apiUploadImages,
 } from "../../services/post";
 import actionTypes from "./actionTypes";
@@ -111,3 +114,64 @@ export const getPostsOfUser = (query, token) => async (dispatch) => {
     });
   }
 };
+
+export const editData = (dataEdit) => ({
+  type: actionTypes.DATA_EDIT,
+  dataEdit
+})
+
+export const resetDataEdit = () => ({
+  type: actionTypes.RESET_DATA_EDIT,
+  dataEdit: {}
+})
+
+export const updatePost = (postId, formData) => async (dispatch) => {
+  try {
+    const response = await apiUpdatePost(postId, formData);
+    if(response.data) {
+      dispatch({
+        type: actionTypes.UPDATE_POST,
+        post: response.data,
+      });
+    }
+  } catch (error) {
+    dispatch({
+      type: actionTypes.UPDATE_POST,
+      post: {},
+    });
+  }
+};
+
+export const deleteImage = (imageUrl) => async (dispatch) => {
+  try {
+    const response = await apiDeleteImage(imageUrl);
+    if(response.data) {
+      dispatch({
+        type: actionTypes.DELETE_IMAGE,
+        msg: response.data,
+      });
+    }
+  } catch (error) {
+    dispatch({
+      type: actionTypes.DELETE_IMAGE,
+      msg: "",
+    });
+  }
+};
+
+export const getPostById = (postId) => async (dispatch) => {
+  try {
+    const response = await apiGetPostById(postId);
+    if(response.data) {
+      dispatch({
+        type: actionTypes.GET_POST_BY_ID,
+        post: response.data
+      })
+    }
+  } catch (error) {
+    dispatch({
+      type: actionTypes.GET_POST_BY_ID,
+      post: {}
+    })
+  }
+}

@@ -52,7 +52,7 @@ const ItemSidebar = ({ title, content, isDouble, type }) => {
           <div className={cx("sidebar__inner")}>
             {content?.map((el) => (
               <Link
-                to={`${formatVietnameseToString(el.value)}`}
+                to={`/${formatVietnameseToString(el.value)}`}
                 key={el.code}
                 className={cx("sidebar__value")}
               >

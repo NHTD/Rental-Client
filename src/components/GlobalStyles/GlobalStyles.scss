@@ -48,3 +48,20 @@ a[href] {
 .word-break-all {
   word-break: break-all;
 }
+
+button.slick-arrow::before {
+  font-size: 39px !important;
+  color: yellow !important;
+}
+
+.slick-next {
+  right: 33px;
+  top: 47%;
+}
+
+.slick-prev {
+  left: 18px;
+  top: 47%;
+  z-index: 1;
+}
+
