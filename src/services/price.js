@@ -5,7 +5,7 @@ export const apiGetPrices = () =>
     try {
       const response = await axiosConfig({
         method: "GET",
-        url: "/rentalHome/prices",
+        url: "/rental-home/prices",
       });
       resolve(response);
     } catch (error) {

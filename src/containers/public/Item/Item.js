@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Item.module.scss";
 import classNames from "classnames/bind";
 import icons from "../../../utils/icons";
@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { path } from "../../../utils/constant";
 
-const { faStar, BsBookmarkStarFill, BsHeart, BsHeartFill } = icons;
+const { faStar, BsBookmarkStarFill } = icons;
 
 const cx = classNames.bind(styles);
 

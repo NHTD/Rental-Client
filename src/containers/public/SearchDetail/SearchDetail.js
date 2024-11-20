@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ItemSidebar, Province, RelatedPost } from "../../../components";
 import ListItem from "../ListItem/ListItem";
 import Pagination from "../Pagination/Pagination";
@@ -14,13 +14,17 @@ const SearchDetail = () => {
   const { prices } = useSelector((state) => state.prices);
   const { areas } = useSelector((state) => state.areas);
 
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <div className={cx("home-page")}>
       <div>
-        <h1 className={cx("text-heading")}>{location.state?.titleSearch || "Kết quả tìm kiếm"}</h1>
-        <p className={cx("text-desc")}>{`${location.state?.titleSearch || "" }`}</p>
+        <h1 className={cx("text-heading")}>
+          {location.state?.titleSearch || "Kết quả tìm kiếm"}
+        </h1>
+        <p className={cx("text-desc")}>{`${
+          location.state?.titleSearch || ""
+        }`}</p>
       </div>
       <Province />
       <div className={cx("content")}>

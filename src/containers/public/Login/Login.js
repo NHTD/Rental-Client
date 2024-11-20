@@ -28,7 +28,7 @@ const Login = () => {
 
   useEffect(() => {
     isLoggedIn && navigate(`${path.HOME}`);
-  }, [isLoggedIn]);
+  }, [isLoggedIn, navigate]);
 
   const formik = useFormik({
     initialValues: {
@@ -89,7 +89,7 @@ const Login = () => {
     if (code && code.length === 387) {
       dispatch(socialLoginCallback({ code: code, login_type: "facebook" }));
     }
-  }, [code, loginType]);
+  }, [code, loginType, dispatch, navigate]);
 
   return (
     <div className={cx("login")}>

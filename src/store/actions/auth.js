@@ -1,9 +1,5 @@
 import actionTypes from "./actionTypes";
-import {
-  apiRegister,
-  apiSignIn,
-  apiSocialLoginCallback,
-} from "../../services/auth";
+import { apiSocialLoginCallback } from "../../services/auth";
 import { apiSocialLogin } from "../../services/user";
 
 // export const register = (payload) => async (dispatch) => {

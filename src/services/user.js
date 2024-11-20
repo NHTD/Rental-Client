@@ -6,7 +6,7 @@ export const apiGetUserDetail = () =>
       const token = localStorage.getItem("token");
       const response = await axiosConfig({
         method: "POST",
-        url: "/rentalHome/users/details",
+        url: "/rental-home/users/details",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -22,7 +22,7 @@ export const apiSocialLogin = (loginType) =>
     try {
       const response = await axiosConfig({
         method: "GET",
-        url: "/rentalHome/authenticate/social-login",
+        url: "/rental-home/authenticate/social-login",
         params: loginType,
       });
       resolve(response);
@@ -36,7 +36,7 @@ export const apiGetUserAccountType = (accountType) =>
     try {
       const response = await axiosConfig({
         method: "GET",
-        url: `/rentalHome/authenticate/${accountType}`,
+        url: `/rental-home/authenticate/${accountType}`,
       });
       resolve(response);
     } catch (error) {
@@ -49,7 +49,7 @@ export const apiUpdateUser = (userId, formData) =>
     try {
       const response = await axiosConfig({
         method: "PUT",
-        url: `/rentalHome/users/${userId}`,
+        url: `/rental-home/users/${userId}`,
         data: formData,
       });
       resolve(response);
@@ -63,7 +63,7 @@ export const apiVerifyOtp = (payload, accountType) =>
     try {
       const response = await axiosConfig({
         method: "POST",
-        url: `/rentalHome/users/verify/${accountType}`,
+        url: `/rental-home/users/verify/${accountType}`,
         data: payload,
       });
       resolve(response);

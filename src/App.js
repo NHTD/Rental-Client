@@ -39,7 +39,7 @@ function App() {
     setTimeout(() => {
       isLoggedIn && dispatch(getUserDetail());
     }, 100);
-  }, [isLoggedIn]);
+  }, [isLoggedIn, dispatch]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -48,7 +48,7 @@ function App() {
       dispatch(getAreas());
       dispatch(getProvinces());
     }, 100);
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={cx("app")}>

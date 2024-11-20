@@ -5,7 +5,7 @@ export const apiGetAreas = () =>
     try {
       const response = await axiosConfig({
         method: "GET",
-        url: "/rentalHome/areas",
+        url: "/rental-home/areas",
       });
       resolve(response);
     } catch (error) {

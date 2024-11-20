@@ -5,7 +5,7 @@ export const apiRegister = (payload) =>
     try {
       const response = await axiosConfig({
         method: "POST",
-        url: "/rentalHome/users",
+        url: "/rental-home/users",
         data: payload,
       });
       resolve(response);
@@ -19,7 +19,7 @@ export const apiSignIn = (payload) =>
     try {
       const response = await axiosConfig({
         method: "POST",
-        url: "/rentalHome/authenticate",
+        url: "/rental-home/authenticate",
         data: payload,
       });
       resolve(response);
@@ -34,7 +34,7 @@ export const apiSocialLoginCallback = (typeParams) =>
     try {
       const response = await axiosConfig({
         method: "GET",
-        url: "/rentalHome/authenticate/social/callback",
+        url: "/rental-home/authenticate/social/callback",
         params: typeParams,
       });
       resolve(response);
@@ -48,7 +48,7 @@ export const apiChangePassword = (accountType, payload) =>
     try {
       const response = axiosConfig({
         method: "PUT",
-        url: `/rentalHome/authenticate/change-password/${accountType}`,
+        url: `/rental-home/authenticate/change-password/${accountType}`,
         data: payload,
       });
       resolve(response);
@@ -62,7 +62,7 @@ export const apiVerifyAccount = (payload) =>
     try {
       const response = axiosConfig({
         method: "POST",
-        url: "/rentalHome/authenticate/verify-account",
+        url: "/rental-home/authenticate/verify-account",
         data: payload,
       });
       resolve(response);

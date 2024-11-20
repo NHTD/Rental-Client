@@ -27,7 +27,7 @@ const Rental = () => {
     if (getCategory) {
       setCategoryCode(getCategory.code);
     }
-  }, [location]);
+  }, [location, category]);
 
   return (
     <div className={cx("home-page")}>

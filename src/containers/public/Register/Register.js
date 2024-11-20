@@ -106,7 +106,8 @@ const Register = () => {
     if (code && code.length === 387) {
       dispatch(socialLoginCallback({ code: code, login_type: "facebook" }));
     }
-  }, [code, loginType]);
+  }, [code, loginType, dispatch, navigate]);
+
   return (
     <div className={cx("register")}>
       <h3 className={cx("register__heading")}>Tạo tài khoản mới</h3>

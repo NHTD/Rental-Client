@@ -21,7 +21,7 @@ const Overview = ({ payload, setPayload, invalidFields, setInvalidFields }) => {
       ...prev,
       categoryCode: categories ? `${category?.find((el) => el?.code === categories)?.code}` : ``
     }));
-  }, [categories]);
+  }, [categories, category, setPayload]);
 
   return (
     <div className={cx("overview")}>

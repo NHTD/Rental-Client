@@ -1,19 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./HomePage.module.scss";
 import classNames from "classnames/bind";
 import { ItemSidebar, Province, RelatedPost } from "../../../components";
 import { ListItem, Pagination } from "../index";
-import { useDispatch, useSelector } from "react-redux";
-import { getAreas, getCategories, getPrices } from "../../../store/actions";
+import { useSelector } from "react-redux";
 
 const cx = classNames.bind(styles);
 
 const HomePage = () => {
-  const dispatch = useDispatch();
   const { category } = useSelector((state) => state.category);
   const { prices } = useSelector((state) => state.prices);
   const { areas } = useSelector((state) => state.areas);
-  
+
   return (
     <div className={cx("home-page")}>
       <div>

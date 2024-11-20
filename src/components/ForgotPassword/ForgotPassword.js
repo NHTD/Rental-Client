@@ -3,7 +3,6 @@ import styles from "./ForgotPassword.module.scss";
 import classNames from "classnames/bind";
 import Swal from "sweetalert2";
 import Loading from "../Loading/Loading";
-import { apiVerifyFromPassword } from "../../services/user";
 import { apiVerifyAccount } from "../../services/auth";
 
 const cx = classNames.bind(styles);

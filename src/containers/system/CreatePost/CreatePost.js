@@ -4,17 +4,15 @@ import classNames from "classnames/bind";
 import { Address, Loading, Overview } from "../../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faL, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import {
   getAreaCodes,
   getPriceCodes,
   validate,
 } from "../../../utils/common/common";
 import {
-  createPost,
   deleteImage,
-  resetDataEdit,
-  updatePost,
+  resetDataEdit
 } from "../../../store/actions/post";
 import { apiCreatePost, apiUpdatePost } from "../../../services";
 import Swal from "sweetalert2";

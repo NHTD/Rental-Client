@@ -1,12 +1,11 @@
 import axiosConfig from "../axiosConfig";
-import axios from "axios";
 
 export const apiGetPosts = () =>
   new Promise(async (resolve, reject) => {
     try {
       const response = await axiosConfig({
         method: "GET",
-        url: "/rentalHome/posts",
+        url: "/rental-home/posts",
       });
       resolve(response);
     } catch (error) {
@@ -19,7 +18,7 @@ export const apiGetPostsLimit = (query) =>
     try {
       const response = await axiosConfig({
         method: "GET",
-        url: `/rentalHome/posts`,
+        url: `/rental-home/posts`,
         params: query,
       });
       resolve(response);
@@ -33,7 +32,7 @@ export const apiGetNewPosts = () =>
     try {
       const response = axiosConfig({
         method: "GET",
-        url: "/rentalHome/posts/new-posts",
+        url: "/rental-home/posts/new-posts",
       });
       resolve(response);
     } catch (error) {
@@ -60,7 +59,7 @@ export const apiUploadImages = (images, postId) =>
     try {
       const response = axiosConfig({
         method: "POST",
-        url: `/rentalHome/posts/image/${postId}`,
+        url: `/rental-home/posts/image/${postId}`,
         data: images,
         // headers: {
         //   'Content-Type': 'multipart/form-data',
@@ -77,8 +76,8 @@ export const apiCreatePost = (formData) =>
     try {
       const response = await axiosConfig({
         method: "POST",
-        url: `/rentalHome/posts/create-post`,
-        data: formData, 
+        url: `/rental-home/posts/create-post`,
+        data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -94,9 +93,9 @@ export const apiGetPostsOfUser = (query, token) =>
     try {
       const response = await axiosConfig({
         method: "POST",
-        url: `/rentalHome/posts/getPostsOfUser`,
+        url: `/rental-home/posts/getPostsOfUser`,
         data: token,
-        params: query, 
+        params: query,
       });
       resolve(response);
     } catch (error) {
@@ -109,8 +108,8 @@ export const apiUpdatePost = (postId, formData) =>
     try {
       const response = await axiosConfig({
         method: "PUT",
-        url: `/rentalHome/posts/${postId}`,
-        data: formData
+        url: `/rental-home/posts/${postId}`,
+        data: formData,
       });
       resolve(response);
     } catch (error) {
@@ -119,25 +118,12 @@ export const apiUpdatePost = (postId, formData) =>
   });
 
 export const apiDeleteImage = (imageUrl) =>
-new Promise(async (resolve, reject) => {
-  try {
-    const response = await axiosConfig({
-      method: "POST",
-      url: "/rentalHome/posts/delete-img",
-      data: imageUrl
-    });
-    resolve(response);
-  } catch (error) {
-    reject(error);
-  }
-});
-
-export const apiDeletePost = (postId) =>
   new Promise(async (resolve, reject) => {
     try {
       const response = await axiosConfig({
-        method: "DELETE",
-        url: `/rentalHome/posts/${postId}`
+        method: "POST",
+        url: "/rental-home/posts/delete-img",
+        data: imageUrl,
       });
       resolve(response);
     } catch (error) {
@@ -145,15 +131,28 @@ export const apiDeletePost = (postId) =>
     }
   });
 
-export const apiGetPostById = (postId) => 
-  new Promise( async (resolve, reject) => {
+export const apiDeletePost = (postId) =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const response = await axiosConfig({
+        method: "DELETE",
+        url: `/rental-home/posts/${postId}`,
+      });
+      resolve(response);
+    } catch (error) {
+      reject(error);
+    }
+  });
+
+export const apiGetPostById = (postId) =>
+  new Promise(async (resolve, reject) => {
     try {
       const response = await axiosConfig({
         method: "GET",
-        url: `/rentalHome/posts/get-post/${postId}`
-      })
-      resolve(response)
+        url: `/rental-home/posts/get-post/${postId}`,
+      });
+      resolve(response);
     } catch (error) {
-      reject(error)
+      reject(error);
     }
-})
+  });

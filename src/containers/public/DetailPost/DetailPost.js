@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import classNames from "classnames/bind";
 import styles from "./DetailPost.module.scss";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPostById } from '../../../store/actions/post';
 import { RelatedPost, SliderCustom } from '../../../components';
@@ -23,7 +23,7 @@ const DetailPost = () => {
 
   useEffect(() => {
     dispatch(getPostById(postId))
-  }, [postId])
+  }, [postId, dispatch])
 
   const star = (el) => {
     const starIcon = []

@@ -49,7 +49,7 @@ const Address = ({ setPayload, invalidFields, setInvalidFields }) => {
       // address: `${province ? `${provinces?.find((el) => el.code === province)?.value}` : ``}`,
       provinceCode: province ? `${provinces?.find((el) => el?.code === province)?.code}` : ``
     }));
-  }, [province, district, dataEdit]);
+  }, [province, district, dataEdit, districts, setPayload, provinces]);
 
   return (
     <div className={cx("address")}>

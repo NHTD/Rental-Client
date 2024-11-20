@@ -1,20 +1,25 @@
 import axios from "axios";
 
+const baseURL =
+  process.env.REACT_APP_SERVER_URL ||
+  "http://localhost:8088" ||
+  "http://localhost:8080";
+
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_SERVER_URL,
+  baseURL,
 });
 
 instance.interceptors.request.use(
   function (config) {
     // const token = localStorage.getItem("persist:auth");
     const publicUrls = [
-      "/rentalHome/users",
-      "/rentalHome/authenticate",
-      "/rentalHome/categories",
-      "/rentalHome/provinces",
-      "/rentalHome/posts",
-      "/rentalHome/authenticate/social-login",
-      "/rentalHome/authenticate/social/callback"
+      "/rental-home/users",
+      "/rental-home/authenticate",
+      "/rental-home/categories",
+      "/rental-home/provinces",
+      "/rental-home/posts",
+      "/rental-home/authenticate/social-login",
+      "/rental-home/authenticate/social/callback",
     ];
 
     // console.log(new URL(config.url, process.env.REACT_APP_SERVER_URL).pathname);

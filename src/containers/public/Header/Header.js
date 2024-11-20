@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "./Header.module.scss";
 import logo from "../../../assets/logo.png";
@@ -24,23 +24,21 @@ const Header = () => {
 
   const ref = useRef();
 
+  let offset = params.get("offset");
+
   useEffect(() => {
     ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [params.get("offset")]);
+  }, [offset]);
 
   const { isLoggedIn } = useSelector((state) => state.auth);
 
   const handleRegister = () => {
-    navigate(`/${path.REGISTER}`)
-  }
+    navigate(`/${path.REGISTER}`);
+  };
 
   const handleLogin = () => {
-    navigate(`/${path.LOGIN}`)
-  }
-
-  // const login = useCallback((flag) => {
-  //   navigate(path.LOGIN, { state: { flag } });
-  // }, []);
+    navigate(`/${path.LOGIN}`);
+  };
 
   return (
     <header ref={ref} className={cx("header")}>

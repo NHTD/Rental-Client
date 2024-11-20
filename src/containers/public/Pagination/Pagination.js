@@ -22,7 +22,7 @@ const Pagination = () => {
     let page = searchParams.get("offset");
     page && +page !== currentPage && setCurrentPage(+page);
     !page && setCurrentPage(1);
-  }, [searchParams]);
+  }, [searchParams, currentPage]);
 
   useEffect(() => {
     let maxPage = Math.floor(totalPage / 4);
@@ -36,7 +36,7 @@ const Pagination = () => {
     setArrayPage(tmp);
     currentPage >= maxPage - 1 ? setIsHideEnd(true) : setIsHideEnd(false);
     currentPage <= 2 ? setIsHideStart(true) : setIsHideStart(false);
-  }, [posts, currentPage]);
+  }, [posts, currentPage, totalPage]);
 
   return (
     <div className={cx("pagination")}>
