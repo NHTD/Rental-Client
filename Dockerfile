@@ -1,11 +1,13 @@
 # Step 1: Build the React app with Bun
-FROM bunland/bun:latest AS build
+FROM node:alpine AS build
 
 # Set the working directory
 WORKDIR /app
 
 # Copy the package files
 COPY package.json ./
+
+RUN npm install -g bun 
 
 # Install dependencies using Bun
 RUN bun install
