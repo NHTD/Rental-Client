@@ -7,10 +7,8 @@ WORKDIR /app
 # Copy the package files
 COPY package.json ./
 
-RUN npm install -g bun 
-
 # Install dependencies using Bun
-RUN bun install
+RUN npm install
 
 # Copy the rest of the app
 COPY . .
@@ -20,7 +18,7 @@ ARG REACT_APP_SERVER_URL
 ENV REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL
 
 # Build the React app using Bun
-RUN bun build
+RUN npm run build
 
 # Step 2: Serve the React app with Nginx
 FROM nginx:alpine
