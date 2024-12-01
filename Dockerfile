@@ -1,5 +1,5 @@
 # Step 1: Build the React app with Bun
-FROM node:alpine AS build
+FROM node:slim AS build
 
 # Set the working directory
 WORKDIR /app
