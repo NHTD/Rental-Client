@@ -30,7 +30,7 @@ jobs:
     # Step 4: Build and tag the Docker image
     - name: Build Docker image
       run: |
-        docker build --build-arg REACT_APP_SERVER_URL=https://4g.std.io.vn/backend -t ghcr.io/${{ env.REPO }}/rental-client:${{ env.TAG }} ghcr.io/${{ env.REPO }}/rental-client:latest .
+        docker build --build-arg REACT_APP_SERVER_URL=https://4g.std.io.vn/backend -t ghcr.io/${{ env.REPO }}/rental-client:${{ env.TAG }} -t ghcr.io/${{ env.REPO }}/rental-client:latest .
 
     # Step 5: Log in to GitHub Container Registry
     - name: Log in to GitHub Container Registry
