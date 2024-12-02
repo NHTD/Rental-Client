@@ -124,7 +124,6 @@ const Header = () => {
 
         <Button
           text={"New post"}
-          onClick={() => alert("clicked")}
           first
           large
           IcAfter={faCirclePlus}
