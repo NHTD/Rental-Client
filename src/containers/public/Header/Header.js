@@ -125,8 +125,6 @@ const Header = () => {
         <Button
           text={"New post"}
           onClick={() => handleLogin()}
-          first
-          large
           IcAfter={faCirclePlus}
         />
       </div>
